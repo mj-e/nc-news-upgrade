@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import ArticleComments from './ArticleComments';
+import ArticleComments from './ArticleComments';
 
 
 class ArticlePage extends Component {
@@ -8,20 +8,20 @@ class ArticlePage extends Component {
 
     }
     render() {
-        console.log('ArticlePage.render');
+        console.log(this.props.params.articleId);
         if (this.props.loading) {
             return <p>Loading...</p>;
         }
         return (
-            <div className="well">
-                <h1 className="article-header">{this.props.article.title}</h1>
-                <div className="article-body"><p>{this.props.article.body}</p></div>
-                <div className="article-details">
+            <div className="panel panel-default">
+                <h3 className="panel-heading">{this.props.article.title}</h3>
+                <div className="panel-body"><p>{this.props.article.body}</p></div>
+                <div className="panel-footer">
                     <p>Category - {this.props.article.belongs_to}</p>
                     <p>Article Comments - {this.props.article.comments}</p>
                 </div>
                 <div>
-                    {/*<ArticleComments/>*/}
+                    <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments} />
                 </div>
             </div>
         );

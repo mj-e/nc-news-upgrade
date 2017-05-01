@@ -1,12 +1,12 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  byId:{},
-  loading: false,
-  error: null
+    byId: {},
+    loading: false,
+    error: null
 };
 
-function reducer (prevState = initialState, action) {
+function reducer(prevState = initialState, action) {
     switch (action.type) {
         case types.FETCH_ARTICLES_REQUEST:
             return Object.assign({}, prevState, {
@@ -34,22 +34,22 @@ function reducer (prevState = initialState, action) {
             });
         default:
             return prevState;
-    } 
+    }
 }
 
-function normaliseData (data) {
-  return data.reduce(function (acc, item) {
-    acc[item._id] = item;
-    return acc;
-  }, {});
+function normaliseData(data) {
+    return data.reduce(function (acc, item) {
+        acc[item._id] = item;
+        return acc;
+    }, {});
 }
 
-export function getTopArticles (state, num) {
-  return Object.keys(state.articles.byId).reduce(function (acc, id) {
-    return acc.concat(state.articles.byId[id]);
-  }, []).sort(function (a, b) {
-    return b.votes - a.votes;
-  }).slice(0, num);
+export function getTopArticles(state, num) {
+    return Object.keys(state.articles.byId).reduce(function (acc, id) {
+        return acc.concat(state.articles.byId[id]);
+    }, []).sort(function (a, b) {
+        return b.votes - a.votes;
+    }).slice(0, num);
 }
 
 export default reducer;
