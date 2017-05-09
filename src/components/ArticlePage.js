@@ -15,12 +15,10 @@ class ArticlePage extends Component {
         return (
             <div className="panel panel-default">
                 <h3 className="panel-heading">{this.props.article.title}</h3>
-                <div className="panel-body"><p>{this.props.article.body}</p></div>
-                <div className="panel-footer">
-                    <p>Category - {this.props.article.belongs_to}</p>
-                    <p>Article Comments - {this.props.article.comments}</p>
+                <div className="panel-body"><p>{this.props.article.body}</p>
+                    <p>Category - {this.props.article.belongs_to} | Comments - {this.props.article.comments}</p>
                 </div>
-                <div>
+                <div className="panel-footer">
                     <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments} />
                 </div>
             </div>
