@@ -8,7 +8,7 @@ class NavBar extends Component {
                 <nav className="navbar navbar-inverse navbar-fixed-top">
                     <div className="container">
                         <div className="navbar-header">
-                            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
                                 <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar" />
                                 <span className="icon-bar" />
@@ -18,10 +18,10 @@ class NavBar extends Component {
                         </div>
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
-                                <li><Link to='/'>Home</Link></li>
-                                <li><Link to='/football'>Football</Link></li>
-                                <li><Link to='/cooking'>Cooking</Link></li>
-                                <li><Link to='/coding'>Coding</Link></li>
+                                <li><Link to='/' className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Home</Link></li>
+                                <li><Link to='/football' className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Football</Link></li>
+                                <li><Link to='/cooking' className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Cooking</Link></li>
+                                <li><Link to='/coding' className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Coding</Link></li>
                             </ul>
                         </div>
                     </div>
