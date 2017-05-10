@@ -6,8 +6,8 @@ const ArticleCard = function (props) {
     return (
         <div className='well'>
             <style>{css}</style>
-            <h3 className='h3'><Link to={`/${props.belongs_to}/${props._id}`} className='title is-3'>{props.title}</Link></h3>
-            <p>By {props.created_by} | Comments: {props.comments} | Category: {props.belongs_to}</p>
+            <h4 className='h4'><Link to={`/${props.belongs_to}/${props._id}`} className='title is-3'>{props.title}</Link></h4>
+            <p>By {props.created_by} | Comments: {props.comments} | Category: {firstLetterCapital(props.belongs_to)}</p>
             <VoteButtons votes={props.votes} handleClick={props.voteArticle} />
         </div>
     );
@@ -21,18 +21,21 @@ export default ArticleCard;
 
 const css = `
     .well {
-        background-color: #edf8fb;
+        background-color: #ffffcc;
     }
-    .h3{
-        font-family: Aleo;
-        color: #f03b20;
+    .h4{
+        font-family: Optima;
+        color: #2c7fb8;
     }
     p{
-        color: #54278f;
-        font-family: serif;
+        color: #2c7fb8;
+        font-family: Optima;
         font-style: bold;
-    }
-    hr {
-        color: black;
-    }
-`;
+    }`;
+
+function firstLetterCapital(str) {
+    return str.split(' ')
+        .map(function (x) {
+            return x.charAt(0).toUpperCase() + x.slice(1);
+        }).join(' ');
+}
