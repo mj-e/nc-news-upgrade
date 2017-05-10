@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="fullPage">
+                <style>{css}</style>
                 <NavBar />
                 <br />
                 <br />
@@ -26,3 +27,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(App);
+
+
+const css = ` 
+    .fullPage{
+    background-color: #c7e9b4;
+    }
+    h1{
+    color:  #0c2c84;
+    }   
+`;
