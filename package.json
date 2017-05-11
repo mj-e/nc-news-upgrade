@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "dev": "webpack-dev-server",
     "lint": "eslint ./*",
     "posttest": "npm run lint",
     "precommit": "npm run test"
