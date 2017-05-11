@@ -24,26 +24,27 @@ class HomePage extends Component {
 }
 
 function mapStateToProps (state) {
-  return {
-    articles: getTopArticles(state, 10)
-  };
+    return {
+        articles: getTopArticles(state, 10)
+    };
 }
 
 function mapDispatchToProps (dispatch) {
-  return {
-    fetchArticles: (topic) => {
-      dispatch(actions.fetchArticles(topic));
-    },
-    voteArticle: (id, vote) => {
-      dispatch(actions.voteArticle(id, vote));
-    }
-  };
+    return {
+        fetchArticles: (topic) => {
+            dispatch(actions.fetchArticles(topic));
+        },
+        voteArticle: (id, vote) => {
+            dispatch(actions.voteArticle(id, vote));
+        }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 
 HomePage.propTypes = {
     articleId: React.PropTypes.number.isRequired,
+    params: React.PropTypes.number.isRequired,
     fetchArticles: React.PropTypes.func.isRequired,
     voteArticle: React.PropTypes.number.isRequired,
     articles: React.PropTypes.string.isRequired
