@@ -5,15 +5,15 @@ import { connect } from 'react-redux';
 import ArticleList from './ArticleList';
 
 class HomePage extends Component {
-    componentDidMount() {
+    componentDidMount () {
         this.props.fetchArticles(this.props.params.topic);
     }
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps (nextProps) {
         if (nextProps.params.topic !== this.props.params.topic) {
             this.props.fetchArticles(nextProps.params.topic);
         }
     }
-    render() {
+    render () {
         console.log('render');
         return (
             <div id='HomePage'>
@@ -41,3 +41,10 @@ function mapDispatchToProps (dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+HomePage.propTypes = {
+    articleId: React.PropTypes.number.isRequired,
+    fetchArticles: React.PropTypes.func.isRequired,
+    voteArticle: React.PropTypes.number.isRequired,
+    articles: React.PropTypes.string.isRequired
+}; 

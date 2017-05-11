@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ./*",
+    "posttest": "npm run lint",
+    "precommit": "npm run test"
   },
   "repository": {
     "type": "git",

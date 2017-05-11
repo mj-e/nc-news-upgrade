@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 class NavBar extends Component {
-    render() {
+    render () {
         return (
             <div>
                 <nav className="navbar navbar-default navbar-fixed-top">

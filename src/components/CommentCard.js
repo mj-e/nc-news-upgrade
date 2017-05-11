@@ -20,3 +20,9 @@ const css = `
         background-color: #ffffcc;
         font-family: Optima;
     }`;
+
+CommentCard.propTypes = {
+    created_at: React.PropTypes.number.isRequired,
+    body: React.PropTypes.string.isRequired,
+    created_by: React.PropTypes.string.isRequired
+};

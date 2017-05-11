@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { ROOT } from '../../config';
 
-export function fetchArticles(topic) {
+export function fetchArticles (topic) {
   let url = `${ROOT}`;
   if (topic) {
     url += `/topics/${topic}/articles`;
@@ -23,27 +23,27 @@ export function fetchArticles(topic) {
   };
 }
 
-export function fetchArticlesSuccess(articles) {
+export function fetchArticlesSuccess (articles) {
   return {
     type: types.FETCH_ARTICLES_SUCCESS,
     data: articles
   };
 }
 
-export function fetchArticlesError(err) {
+export function fetchArticlesError (err) {
   return {
     type: types.FETCH_ARTICLES_ERROR,
     err: err
   };
 }
 
-export function fetchArticlesRequest() {
+export function fetchArticlesRequest () {
   return {
     type: types.FETCH_ARTICLES_REQUEST
   };
 }
 
-export function fetchComments(articleId) {
+export function fetchComments (articleId) {
   return (dispatch) => {
     dispatch(fetchCommentsRequest());
     axios
@@ -57,27 +57,27 @@ export function fetchComments(articleId) {
   };
 }
 
-export function fetchCommentsSuccess(comments) {
+export function fetchCommentsSuccess (comments) {
   return {
     type: types.FETCH_COMMENTS_SUCCESS,
     data: comments
   };
 }
 
-export function fetchCommentsError(err) {
+export function fetchCommentsError (err) {
   return {
     type: types.FETCH_COMMENTS_ERROR,
     err: err
   };
 }
 
-export function fetchCommentsRequest() {
+export function fetchCommentsRequest () {
   return {
     type: types.FETCH_COMMENTS_REQUEST
   };
 }
 
-export function voteArticle(id, vote) {
+export function voteArticle (id, vote) {
   return (dispatch) => {
     dispatch(voteArticleRequest());
     axios
@@ -91,21 +91,21 @@ export function voteArticle(id, vote) {
   };
 }
 
-export function voteArticleRequest() {
+export function voteArticleRequest () {
   return {
     type: types.VOTE_ARTICLE_REQUEST,
 
   };
 }
 
-export function voteArticleError(error) {
+export function voteArticleError (error) {
   return {
     type: types.VOTE_ARTICLE_ERROR,
     error
   };
 }
 
-export function voteArticleSuccess(data) {
+export function voteArticleSuccess (data) {
   return {
     type: types.VOTE_ARTICLE_SUCCESS,
     data

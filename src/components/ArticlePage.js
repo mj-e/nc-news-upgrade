@@ -4,10 +4,10 @@ import ArticleComments from './ArticleComments';
 
 
 class ArticlePage extends Component {
-    componentDidMount() {
+    componentDidMount () {
 
     }
-    render() {
+    render () {
         console.log(this.props.params.articleId);
         if (this.props.loading) {
             return <p>Loading...</p>;
@@ -26,7 +26,7 @@ class ArticlePage extends Component {
     }
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps (state, props) {
     return {
         article: state.articles.byId[props.params.articleId],
         loading: (
@@ -36,3 +36,15 @@ function mapStateToProps(state, props) {
 }
 
 export default connect(mapStateToProps)(ArticlePage);
+
+ArticlePage.propTypes = {
+    articleId: React.PropTypes.number.isRequired,
+    votes: React.PropTypes.number.isRequired,
+    belongs_to: React.PropTypes.string.isRequired,
+    _id: React.PropTypes.number.isRequired,
+    title: React.PropTypes.string.isRequired,
+    body: React.PropTypes.string.isRequired,
+    created_by: React.PropTypes.string.isRequired,
+    comments: React.PropTypes.string.isRequired,
+    loading: React.PropTypes.string.isRequired
+}; 

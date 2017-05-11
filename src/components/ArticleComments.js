@@ -26,7 +26,7 @@ function mapStateToProps (state) {
     };
 }
 
-function mapDispatchToProps (dispatch, props) {
+function mapDispatchToProps (dispatch) {
     return {
         fetchComments: (id) => {
             dispatch(actions.fetchComments(id));
@@ -35,3 +35,9 @@ function mapDispatchToProps (dispatch, props) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleComments);
+
+ArticleComments.propTypes = {
+    fetchComments: React.PropTypes.func.isRequired,
+    articleId: React.PropTypes.number.isRequired,
+    comments: React.PropTypes.string.isRequired
+};
