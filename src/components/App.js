@@ -37,3 +37,9 @@ const css = `
     color:  #0c2c84;
     }   
 `;
+
+
+
+export function sum(a, b) {
+  return a + b
+}
