@@ -6,7 +6,7 @@ const initialState = {
   error: null
 };
 
-function commentsReducer(prevState = initialState, action) {
+function commentsReducer (prevState = initialState, action) {
   switch (action.type) {
     case types.FETCH_COMMENTS_REQUEST:
       return Object.assign({}, prevState, {

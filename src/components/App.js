@@ -4,7 +4,7 @@ import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 
 class App extends Component {
-    render() {
+    render () {
         return (
             <div className="fullPage">
                 <style>{css}</style>
@@ -18,7 +18,7 @@ class App extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         fetchArticles: (topic) => {
             dispatch(actions.fetchArticles(topic));
@@ -37,3 +37,7 @@ const css = `
     color:  #0c2c84;
     }   
 `;
+
+App.propTypes = {
+     children: React.PropTypes.element.isRequired
+};

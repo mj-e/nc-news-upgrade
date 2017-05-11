@@ -14,7 +14,13 @@ const ArticleCard = function (props) {
 };
 
 ArticleCard.propTypes = {
-    voteArticle: React.PropTypes.func.isRequired
+    voteArticle: React.PropTypes.func.isRequired,
+    votes: React.PropTypes.number.isRequired,
+    belongs_to: React.PropTypes.string.isRequired,
+    _id: React.PropTypes.number.isRequired,
+    title: React.PropTypes.string.isRequired,
+    created_by: React.PropTypes.string.isRequired,
+    comments: React.PropTypes.string.isRequired
 };
 
 export default ArticleCard;
@@ -33,7 +39,7 @@ const css = `
         font-style: italic;
     }`;
 
-function firstLetterCapital(str) {
+function firstLetterCapital (str) {
     return str.split(' ')
         .map(function (x) {
             return x.charAt(0).toUpperCase() + x.slice(1);

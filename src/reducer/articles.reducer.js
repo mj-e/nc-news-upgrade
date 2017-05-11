@@ -6,7 +6,7 @@ const initialState = {
     error: null
 };
 
-function reducer(prevState = initialState, action) {
+function reducer (prevState = initialState, action) {
     switch (action.type) {
         case types.FETCH_ARTICLES_REQUEST:
             return Object.assign({}, prevState, {
@@ -24,7 +24,7 @@ function reducer(prevState = initialState, action) {
                 error: action.error
             });
         case types.VOTE_ARTICLE_SUCCESS:
-            const articleId = action.data._id;
+            var articleId = action.data._id;
             return Object.assign({}, prevState, {
                 byId: Object.assign({}, prevState.byId, {
                     [articleId]: Object.assign({}, prevState.byId[articleId], {
@@ -37,14 +37,14 @@ function reducer(prevState = initialState, action) {
     }
 }
 
-function normaliseData(data) {
+function normaliseData (data) {
     return data.reduce(function (acc, item) {
         acc[item._id] = item;
         return acc;
     }, {});
 }
 
-export function getTopArticles(state, num) {
+export function getTopArticles (state, num) {
     return Object.keys(state.articles.byId).reduce(function (acc, id) {
         return acc.concat(state.articles.byId[id]);
     }, []).sort(function (a, b) {
