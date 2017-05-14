@@ -35,5 +35,4 @@ const css = `
     p{
         color: #0c2c84;
         font-family: Optima;
-        font-style: italic;
     }`;

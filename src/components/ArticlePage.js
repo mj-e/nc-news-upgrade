@@ -4,7 +4,6 @@ import ArticleComments from './ArticleComments';
 import PropTypes from 'prop-types';
 import firstLetterCapital from '../helpers/capitalize';
 
-
 class ArticlePage extends Component {
 
     render () {
@@ -15,7 +14,8 @@ class ArticlePage extends Component {
             <div className="panel panel-default">
                 <style>{css}</style>
                 <div className="panel-body">
-                <h3 className="panel-heading">{this.props.article.title}</h3>
+                    <h3 className="panel-heading">{this.props.article.title}</h3>
+                
                     <p>{this.props.article.body}</p>
                     <p>Category - {firstLetterCapital(this.props.article.belongs_to)} | Comments - {this.props.article.comments}</p>
                 </div>
@@ -26,6 +26,21 @@ class ArticlePage extends Component {
         );
     }
 }
+
+const css = `
+    .panel-footer {
+        background: #FFFFFF;
+    }
+    .panel-body {
+        font-family: Optima;
+        color:  #0c2c84;
+        background: #F5F5F5;
+    }
+    .panel-heading {
+        text-align: center;
+    }
+    
+`;
 
 function mapStateToProps (state, props) {
     return {
@@ -51,11 +66,3 @@ ArticlePage.propTypes = {
     comments: PropTypes.array.isRequired,
     loading: PropTypes.boolean
 }; 
-
-const css = `
-    .panel-heading {
-        font-family: Optima;
-        color:  #0c2c84;
-        text-align: center;
-    }
-`;
