@@ -7,7 +7,7 @@ class NavBar extends Component {
             <div>
                 <style>{css}</style>
                 <nav className="navbar navbar-default navbar-fixed-top">
-                    <img className="navbar-brand" href="/" src="/images/logo.png" align='left'/>
+                    <img className="navbar-brand" href="/" src="/images/logo.png"/>
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
