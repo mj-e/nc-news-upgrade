@@ -93,8 +93,7 @@ export function voteArticle (id, vote) {
 
 export function voteArticleRequest () {
   return {
-    type: types.VOTE_ARTICLE_REQUEST,
-
+    type: types.VOTE_ARTICLE_REQUEST
   };
 }
 
