@@ -3,6 +3,7 @@ import * as actions from '../actions/actions';
 import { getTopArticles } from '../reducer/articles.reducer';
 import { connect } from 'react-redux';
 import ArticleList from './ArticleList';
+import PropTypes from 'prop-types';
 
 class HomePage extends Component {
     componentDidMount () {
@@ -43,9 +44,8 @@ function mapDispatchToProps (dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 
 HomePage.propTypes = {
-    articleId: React.PropTypes.number.isRequired,
-    params: React.PropTypes.number.isRequired,
-    fetchArticles: React.PropTypes.func.isRequired,
-    voteArticle: React.PropTypes.number.isRequired,
-    articles: React.PropTypes.string.isRequired
+    params: PropTypes.object.isRequired,
+    fetchArticles: PropTypes.func.isRequired,
+    voteArticle: PropTypes.func.isRequired,
+    articles: PropTypes.array.isRequired
 }; 

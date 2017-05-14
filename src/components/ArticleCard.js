@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import VoteButtons from './VoteButtons';
+import PropTypes from 'prop-types';
+import firstLetterCapital from '../helpers/capitalize';
 
 const ArticleCard = function (props) {
     return (
@@ -14,21 +16,18 @@ const ArticleCard = function (props) {
 };
 
 ArticleCard.propTypes = {
-    voteArticle: React.PropTypes.func.isRequired,
-    votes: React.PropTypes.number.isRequired,
-    belongs_to: React.PropTypes.string.isRequired,
-    _id: React.PropTypes.number.isRequired,
-    title: React.PropTypes.string.isRequired,
-    created_by: React.PropTypes.string.isRequired,
-    comments: React.PropTypes.string.isRequired
+    voteArticle: PropTypes.func.isRequired,
+    votes: PropTypes.number.isRequired,
+    belongs_to: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    created_by: PropTypes.string.isRequired,
+    comments: PropTypes.number.isRequired
 };
 
 export default ArticleCard;
 
 const css = `
-    .well {
-        background-color: #ffffd9;
-    }
     .h4link{
         font-family: Optima;
         color: #0c2c84;
@@ -38,10 +37,3 @@ const css = `
         font-family: Optima;
         font-style: italic;
     }`;
-
-function firstLetterCapital (str) {
-    return str.split(' ')
-        .map(function (x) {
-            return x.charAt(0).toUpperCase() + x.slice(1);
-        }).join(' ');
-}

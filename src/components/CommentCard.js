@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const CommentCard = function (props) {
   return (
@@ -17,12 +18,11 @@ export default CommentCard;
 
 const css = `
     .panel-body {
-        background-color: #ffffcc;
         font-family: Optima;
     }`;
 
 CommentCard.propTypes = {
-    created_at: React.PropTypes.number.isRequired,
-    body: React.PropTypes.string.isRequired,
-    created_by: React.PropTypes.string.isRequired
+    created_at: PropTypes.number.isRequired,
+    body: PropTypes.string.isRequired,
+    created_by: PropTypes.string.isRequired
 };

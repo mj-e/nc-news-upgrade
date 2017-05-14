@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './Navbar';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class App extends Component {
     render () {
@@ -11,7 +12,7 @@ class App extends Component {
                 <NavBar />
                 <br />
                 <br />
-                <h1> NC news upgrade with bootstrap </h1>
+                <h1> Northcoders News </h1>
                 {this.props.children}
             </div>
         );
@@ -30,14 +31,13 @@ export default connect(null, mapDispatchToProps)(App);
 
 
 const css = ` 
-    .fullPage{
-    background-color: #c7e9b4;
-    }
     h1{
     color:  #0c2c84;
+    text-align: center;
+    font-family: Optima;
     }   
 `;
 
 App.propTypes = {
-     children: React.PropTypes.element.isRequired
+     children: PropTypes.element.isRequired
 };
