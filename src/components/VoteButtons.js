@@ -23,16 +23,13 @@ export default VoteButtons;
 const css = `
     .btn-transparent {
     background: transparent;
-    color: lightgray;
-    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
-    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
-    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
-    transition: background .2s ease-in-out, border .2s ease-in-out;
-    border: 1px solid lightgray;
-}
-
-    .btn-transparent:hover {
-        color: black;
-        background-color: rgba(255,255,255,0.2);
+    color: slategray;
+    border: 1px solid #0c2c84;
+    outline:none;
+    }
+    .btn:focus {
+    outline: none;
+    color: slategray;
     }
 `;
+
