@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
 import CommentCard from './CommentCard';
+import PropTypes from 'prop-types';
 
 export class ArticleComments extends Component {
     componentWillMount () {
         this.props.fetchComments(this.props.articleId);
     }
     render () {
-        console.log(this.props.comments);
-
         return (
             <div className="panel panel-default">
                 {this.props.comments.map(function (comment, i) {
@@ -37,7 +36,7 @@ function mapDispatchToProps (dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleComments);
 
 ArticleComments.propTypes = {
-    fetchComments: React.PropTypes.func.isRequired,
-    articleId: React.PropTypes.number.isRequired,
-    comments: React.PropTypes.string.isRequired
+    fetchComments: PropTypes.func.isRequired,
+    articleId: PropTypes.string.isRequired,
+    comments: PropTypes.array.isRequired
 };

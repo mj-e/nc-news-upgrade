@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleCard from './ArticleCard';
+import PropTypes from 'prop-types';
 
 function ArticleList (props) {
     return (
@@ -16,11 +17,11 @@ function ArticleList (props) {
 }
 
 ArticleList.propTypes = {
-    articles: React.PropTypes.array.isRequired
+    articles: PropTypes.array.isRequired
 };
 
 export default ArticleList;
 
 ArticleList.propTypes = {
-    voteArticle: React.PropTypes.func.isRequired,
+    voteArticle: PropTypes.func.isRequired,
 };
