@@ -2,3 +2,5 @@
 **/*.md
 public/bootstrap-3.3.7/**
 coverage/lcov-report/**
+bundle.js
+Procfile

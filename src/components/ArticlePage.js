@@ -14,14 +14,18 @@ class ArticlePage extends Component {
     }
     render () {
         if (this.props.loading) {
-            return <p>Loading...</p>;
+            return (
+                <div>
+                    <style>{css}</style>
+                    <h4 className="loading">Loading...</h4>;
+                </div>
+            );
         }
         return (
             <div className="panel panel-default">
                 <style>{css}</style>
                 <div className="panel-body">
                     <h3 className="panel-heading">{this.props.article.title}</h3>
-                
                     <p>{this.props.article.body}</p>
                     <p>Category - {firstLetterCapital(this.props.article.belongs_to)} | Comments - {this.props.article.comments}</p>
                 </div>
@@ -32,21 +36,6 @@ class ArticlePage extends Component {
         );
     }
 }
-
-const css = `
-    .panel-footer {
-        background: #FFFFFF;
-    }
-    .panel-body {
-        font-family: Optima;
-        color:  #0c2c84;
-        background: #F5F5F5;
-    }
-    .panel-heading {
-        text-align: center;
-    }
-    
-`;
 
 function mapStateToProps (state, props) {
     return {
@@ -62,22 +51,36 @@ function mapDispatchToProps (dispatch) {
         fetchArticles: (topic) => {
             dispatch(actions.fetchArticles(topic));
         }
-    }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
 
 ArticlePage.propTypes = {
-    articleId: PropTypes.string.isRequired,
     params: PropTypes.object.isRequired,
-    votes: PropTypes.number.isRequired,
-    belongs_to: PropTypes.string.isRequired,
-    _id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    created_by: PropTypes.string.isRequired,
     article: PropTypes.object.isRequired,
-    comments: PropTypes.array.isRequired,
-    loading: PropTypes.boolean,
+    comments: PropTypes.array,
+    loading: PropTypes.bool.isRequired,
     fetchArticles: PropTypes.func.isRequired
 }; 
+
+const css = `
+    .loading {
+        color:  #0c2c84;
+        text-align: center;
+        font-family: Optima;
+    }
+    .panel-footer {
+        background: #FFFFFF;
+    }
+    .panel-body {
+        font-family: Optima;
+        color:  #0c2c84;
+        background: #F5F5F5;
+    }
+    .panel-heading {
+        font-family: Optima;
+        color:  #0c2c84;
+        background: #F5F5F5;
+    }
+`;

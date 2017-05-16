@@ -16,13 +16,13 @@ const CommentCard = function (props) {
 
 export default CommentCard;
 
-const css = `
-    .panel-body {
-        font-family: Optima;
-    }`;
-
 CommentCard.propTypes = {
     created_at: PropTypes.number.isRequired,
     body: PropTypes.string.isRequired,
     created_by: PropTypes.string.isRequired
 };
+
+const css = `
+    .panel-body {
+        font-family: Optima;
+    }`;

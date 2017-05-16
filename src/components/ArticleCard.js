@@ -28,11 +28,11 @@ ArticleCard.propTypes = {
 export default ArticleCard;
 
 const css = `
-    .h4link{
+    .h4link {
         font-family: Optima;
         color: #0c2c84;
     }
-    p{
+    p {
         color: #0c2c84;
         font-family: Optima;
     }`;

@@ -29,6 +29,9 @@ function mapDispatchToProps (dispatch) {
 
 export default connect(null, mapDispatchToProps)(App);
 
+App.propTypes = {
+     children: PropTypes.element.isRequired
+};
 
 const css = ` 
     h1{
@@ -37,7 +40,3 @@ const css = `
     font-family: Optima;
     }   
 `;
-
-App.propTypes = {
-     children: PropTypes.element.isRequired
-};

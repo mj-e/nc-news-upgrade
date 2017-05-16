@@ -82,7 +82,7 @@ export function voteArticle (id, vote) {
     dispatch(voteArticleRequest());
     axios
       .put(`${ROOT}/articles/${id}?vote=${vote}`)
-      .then(res => {
+      .then(() => {
         dispatch(voteArticleSuccess({_id: id, vote}));
       })
       .catch(error => {

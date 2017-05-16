@@ -20,9 +20,9 @@ describe('comments.reducer', () => {
         error: null
     };
     it('returns state when not passed an action', () => {
-            const newState = commentsReducer(initialState);
-            expect(newState).to.eql(initialState);
-        });
+        const newState = commentsReducer(initialState);
+        expect(newState).to.eql(initialState);
+    });
     describe('when passed action FETCH_COMMENTS_REQUEST', () => {
         it('does not mutate the initial state', () => {
             const action = actions.fetchCommentsRequest();
@@ -61,22 +61,22 @@ describe('comments.reducer', () => {
     });
     xdescribe('when passed action VOTE_COMMENT_SUCCESS', () => {
         it('does not mutate the initial state', () => {
-            const action = actions.voteCommentSuccess({_id: '591599508e6a053693d1e0d0', vote: 'up'});
+            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'up' });
             const newState = commentsReducer(initialState, action);
             expect(newState).to.not.equal(initialState);
         });
         it('sets loading to false', () => {
-            const action = actions.voteCommentSuccess({_id: '591599508e6a053693d1e0d0', vote: 'up'});
+            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'up' });
             const newState = commentsReducer(initialState, action);
             expect(newState.loading).to.equal(false);
         });
         it('votes down the specific comment', () => {
-            const action = actions.voteCommentSuccess({_id: '591599508e6a053693d1e0d0', vote: 'down'});
+            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'down' });
             const newState = commentsReducer(initialState, action);
             expect(newState.comments[0].votes).to.equal(9);
         });
         it('votes up the specific comment', () => {
-            const action = actions.voteCommentSuccess({_id: '591599508e6a053693d1e0d0', vote: 'up'});
+            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'up' });
             const newState = commentsReducer(initialState, action);
             expect(newState.comments[0].votes).to.equal(11);
         });
