@@ -6,7 +6,7 @@ const initialState = {
     error: null
 };
 
-export function reducer(prevState = initialState, action) {
+export function reducer (prevState = initialState, action) {
     if (typeof action === 'undefined') return prevState;
     switch (action.type) {
         case types.FETCH_ARTICLES_REQUEST:
@@ -40,17 +40,19 @@ export function reducer(prevState = initialState, action) {
     }
 }
 
-function normaliseData(data) {
+function normaliseData (data) {
     return data.reduce(function (acc, item) {
         acc[item._id] = item;
         return acc;
     }, {});
 }
 
-export function getTopArticles(state, num) {
+export function getTopArticles (state, num) {
     return Object.keys(state.articles.byId).reduce(function (acc, id) {
         return acc.concat(state.articles.byId[id]);
     }, []).sort(function (a, b) {
         return b.votes - a.votes;
     }).slice(0, num);
 }
+
+export default reducer;

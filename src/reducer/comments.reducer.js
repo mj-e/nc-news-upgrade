@@ -28,3 +28,5 @@ export function commentsReducer (prevState = initialState, action) {
       return prevState;
   }
 }
+
+export default commentsReducer;
