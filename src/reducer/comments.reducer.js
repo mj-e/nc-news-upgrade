@@ -6,7 +6,8 @@ const initialState = {
   error: null
 };
 
-function commentsReducer (prevState = initialState, action) {
+export function commentsReducer (prevState = initialState, action) {
+  if (typeof action === 'undefined') return prevState;
   switch (action.type) {
     case types.FETCH_COMMENTS_REQUEST:
       return Object.assign({}, prevState, {
@@ -27,5 +28,3 @@ function commentsReducer (prevState = initialState, action) {
       return prevState;
   }
 }
-
-export default commentsReducer;

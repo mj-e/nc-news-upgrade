@@ -54,5 +54,3 @@ export function getTopArticles(state, num) {
         return b.votes - a.votes;
     }).slice(0, num);
 }
-
-// export default reducer;
