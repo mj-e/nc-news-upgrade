@@ -17,11 +17,8 @@ function ArticleList (props) {
 }
 
 ArticleList.propTypes = {
-    articles: PropTypes.array.isRequired
+    articles: PropTypes.array.isRequired,
+    voteArticle: PropTypes.func.isRequired
 };
 
 export default ArticleList;
-
-ArticleList.propTypes = {
-    voteArticle: PropTypes.func.isRequired,
-};

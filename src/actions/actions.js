@@ -83,7 +83,7 @@ export function voteArticle (id, vote) {
     axios
       .put(`${ROOT}/articles/${id}?vote=${vote}`)
       .then(res => {
-        dispatch(voteArticleSuccess(res.data));
+        dispatch(voteArticleSuccess({_id: id, vote}));
       })
       .catch(error => {
         dispatch(voteArticleError(error.message));
@@ -100,13 +100,13 @@ export function voteArticleRequest () {
 export function voteArticleError (error) {
   return {
     type: types.VOTE_ARTICLE_ERROR,
-    error
+    error: error
   };
 }
 
 export function voteArticleSuccess (data) {
   return {
     type: types.VOTE_ARTICLE_SUCCESS,
-    data
+    data: data
   };
 }
