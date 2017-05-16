@@ -6,7 +6,8 @@ const initialState = {
     error: null
 };
 
-function reducer(prevState = initialState, action) {
+export function reducer(prevState = initialState, action) {
+    if (typeof action === 'undefined') return prevState;
     switch (action.type) {
         case types.FETCH_ARTICLES_REQUEST:
             return Object.assign({}, prevState, {
@@ -54,4 +55,4 @@ export function getTopArticles(state, num) {
     }).slice(0, num);
 }
 
-export default reducer;
+// export default reducer;

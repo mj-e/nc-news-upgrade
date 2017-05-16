@@ -15,7 +15,6 @@ class HomePage extends Component {
         }
     }
     render () {
-        console.log('render');
         return (
             <div id='HomePage'>
                 <ArticleList articles={this.props.articles} voteArticle={this.props.voteArticle} />

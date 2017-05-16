@@ -3,9 +3,15 @@ import { connect } from 'react-redux';
 import ArticleComments from './ArticleComments';
 import PropTypes from 'prop-types';
 import firstLetterCapital from '../helpers/capitalize';
+import * as actions from '../actions/actions';
 
 class ArticlePage extends Component {
-
+    constructor (props) {
+        super(props);
+    }
+    componentDidMount () {
+        this.props.fetchArticles(this.props.params.topic);
+    }
     render () {
         if (this.props.loading) {
             return <p>Loading...</p>;
@@ -51,7 +57,15 @@ function mapStateToProps (state, props) {
     };
 }
 
-export default connect(mapStateToProps)(ArticlePage);
+function mapDispatchToProps (dispatch) {
+    return {
+        fetchArticles: (topic) => {
+            dispatch(actions.fetchArticles(topic));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
 
 ArticlePage.propTypes = {
     articleId: PropTypes.string.isRequired,
@@ -64,5 +78,6 @@ ArticlePage.propTypes = {
     created_by: PropTypes.string.isRequired,
     article: PropTypes.object.isRequired,
     comments: PropTypes.array.isRequired,
-    loading: PropTypes.boolean
+    loading: PropTypes.boolean,
+    fetchArticles: PropTypes.func.isRequired
 }; 
