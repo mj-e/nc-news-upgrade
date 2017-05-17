@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { reducer } from '../src/reducer/articles.reducer.js';
 import * as actions from '../src/actions/actions.js';
 
-describe('articles.reducer', () => {
+describe('#articles.reducer', () => {
     const initialState = {
         articles: [
             {

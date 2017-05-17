@@ -2,8 +2,7 @@ import { expect } from 'chai';
 import { commentsReducer } from '../src/reducer/comments.reducer.js';
 import * as actions from '../src/actions/actions.js';
 
-
-describe('comments.reducer', () => {
+describe('#comments.reducer', () => {
     const initialState = {
         comments: [
             {
@@ -57,28 +56,6 @@ describe('comments.reducer', () => {
             const action = actions.fetchCommentsError(initialState.comments);
             const newState = commentsReducer(initialState, action);
             expect(newState.loading).to.equal(false);
-        });
-    });
-    xdescribe('when passed action VOTE_COMMENT_SUCCESS', () => {
-        it('does not mutate the initial state', () => {
-            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'up' });
-            const newState = commentsReducer(initialState, action);
-            expect(newState).to.not.equal(initialState);
-        });
-        it('sets loading to false', () => {
-            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'up' });
-            const newState = commentsReducer(initialState, action);
-            expect(newState.loading).to.equal(false);
-        });
-        it('votes down the specific comment', () => {
-            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'down' });
-            const newState = commentsReducer(initialState, action);
-            expect(newState.comments[0].votes).to.equal(9);
-        });
-        it('votes up the specific comment', () => {
-            const action = actions.voteCommentSuccess({ _id: '591599508e6a053693d1e0d0', vote: 'up' });
-            const newState = commentsReducer(initialState, action);
-            expect(newState.comments[0].votes).to.equal(11);
         });
     });
 });
