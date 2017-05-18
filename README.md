@@ -12,11 +12,11 @@ Please follow this guide to get the site up and running, from the command line e
 
 To clone the repository
 ```
-git clone https://github.com/mj-e/nc-news-upgrade.git
+git clone https://github.com/mj-e/northcoders-news-mje.git
 ```
 Change into the directory
 ```
-cd nc-news-upgrade
+cd northcoders-news-mje
 ```
 Install dependencies
 ```
@@ -28,7 +28,7 @@ npm run dev
 ```
 To view the site open browser to
 ```
-http://localhost:9090/
+http://localhost:9090
 ```
 ## Running the tests
 
